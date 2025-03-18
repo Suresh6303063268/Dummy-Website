@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Tutors</title>
+    <link rel="stylesheet" href="About.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./Images/Tuttria.jpg" alt="Principal Tutors Logo">
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="dropdown">
+                    <a href="#">Online Tutors ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Math Tutors</a></li>
+                        <li><a href="#">Science Tutors</a></li>
+                        <li><a href="#">English Tutors</a></li>
+                        <li class="dropdown">
+                            <a href="#">More Subjects ▾</a>
+                            <ul class="sub-dropdown-menu">
+                                <li><a href="#">History Tutors</a></li>
+                                <li><a href="#">Geography Tutors</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">11+ Tutors</a></li>
+                <li class="dropdown">
+                    <a href="#">Parent Guides ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Exam Tips</a></li>
+                        <li><a href="#">Study Plans</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">International ▾</a></li>
+                <li><a href="#">Schools</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Become a Tutor</a></li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <button class="gold-btn">Request a Tutor</button>
+            <button class="blue-btn">Become a Tutor</button>
+            <button class="blue-btn">Sign In</button>
+        </div>
+    </header>
+
+    <footer>
+        <button class="close-btn">Close ✖</button>
+    </footer>
+
+    <script>// Get all dropdown elements
+        document.addEventListener("DOMContentLoaded", function() {
+            let dropdowns = document.querySelectorAll(".dropdown > a");
+        
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    let dropdownMenu = this.nextElementSibling;
+        
+                    // Close all other dropdowns
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        if (menu !== dropdownMenu) {
+                            menu.style.display = "none";
+                        }
+                    });
+        
+                    // Toggle current dropdown
+                    dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+                });
+            });
+        
+            // Close dropdown when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!event.target.closest(".dropdown")) {
+                    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                        menu.style.display = "none";
+                    });
+                }
+            });
+        });
+        </script>
+</body>
+</html>
